@@ -1,0 +1,3 @@
+<ui-button (handleClick)="startRecording()">Record</ui-button> <ui-button (handleClick)="endRecording()">Stop</ui-button>
+
+<audio *ngIf="audioUrl" controls [src]="audioUrl"></audio>

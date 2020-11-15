@@ -1,0 +1,15 @@
+<button
+  (click)="onClick()"
+  [attr.aria-label]="assistiveText"
+  [disabled]="disabled && !submit"
+  [ngClass]="{
+    'c-button--disabled': disabled,
+    'c-button--primary': theme === 'primary',
+    'c-button--secondary': theme === 'secondary',
+    'c-button--white': theme === 'white'
+  }"
+  [type]="submit ? 'submit' : 'button'"
+  class="c-button type-button"
+>
+  <ng-content></ng-content>
+</button>

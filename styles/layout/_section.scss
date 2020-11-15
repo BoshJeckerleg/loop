@@ -1,0 +1,13 @@
+@each $setting in map-keys($grid-settings) {
+  $breakpoint: map-deep-get($grid-settings, $setting, 'breakpoint');
+  $row-gap: map-deep-get($grid-settings, $setting, 'row-gap');
+
+  @media (min-width: $breakpoint) {
+    // Grid column widths
+    @for $i from 1 through $grid-columns {
+      .l-section {
+        padding: calc(#{$row-gap} * 2) 0 calc(#{$row-gap} * 3) 0;
+      }
+    }
+  }
+}

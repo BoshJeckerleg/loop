@@ -1,0 +1,35 @@
+<ng-container [ngTemplateOutlet]="routerPath ? internalLink : externalLink"></ng-container>
+
+<ng-template #internalLink>
+  <a
+    [attr.aria-label]="assistiveText"
+    [ngClass]="{
+      'c-button-link--disabled': disabled,
+      'c-button-link--primary': theme === 'primary',
+      'c-button-link--secondary': theme === 'secondary',
+      'c-button-link--white': theme === 'white'
+    }"
+    [routerLink]="disabled ? null : routerPath"
+    class="c-button-link type-button"
+  >
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </a>
+</ng-template>
+
+<ng-template #externalLink>
+  <a
+    [attr.aria-label]="assistiveText"
+    [attr.href]="externalPath"
+    [ngClass]="{
+      'c-button-link--disabled': disabled,
+      'c-button-link--primary': theme === 'primary',
+      'c-button-link--secondary': theme === 'secondary',
+      'c-button-link--white': theme === 'white'
+    }"
+    class="c-button-link type-button"
+  >
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </a>
+</ng-template>
+
+<ng-template #content><ng-content></ng-content></ng-template>

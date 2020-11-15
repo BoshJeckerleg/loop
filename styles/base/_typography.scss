@@ -1,0 +1,112 @@
+@import 'common';
+@import './fonts';
+
+@mixin type-light() {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+
+@mixin type-regular() {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+
+@mixin type-bold() {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 600;
+}
+
+@mixin type-banner() {
+  @include type-regular();
+  font-size: rem(32px);
+  line-height: 1.5;
+  letter-spacing: rem(1.25px);
+
+  @media (min-width: $breakpoint-md) {
+    font-size: rem(40px);
+  }
+}
+
+.type-banner {
+  @include type-banner();
+}
+
+@mixin type-primary-heading() {
+  @include type-bold();
+  font-size: rem(28px);
+  line-height: 1.5;
+  letter-spacing: rem(1.25px);
+
+  @media (min-width: $breakpoint-md) {
+    font-size: rem(34px);
+  }
+}
+
+.type-primary-heading {
+  @include type-primary-heading();
+}
+
+@mixin type-secondary-heading() {
+  @include type-bold();
+  font-size: rem(24px);
+  line-height: 1.5;
+  letter-spacing: rem(1.25px);
+
+  @media (min-width: $breakpoint-md) {
+    font-size: rem(28px);
+  }
+}
+
+.type-secondary-heading {
+  @include type-secondary-heading();
+}
+
+@mixin type-body() {
+  @include type-regular();
+  font-size: rem(16px);
+  line-height: 1.5;
+  letter-spacing: rem(1.25px);
+}
+
+.type-body {
+  @include type-body();
+}
+
+@mixin type-small() {
+  @include type-regular();
+  font-size: rem(12px);
+  line-height: 1.5;
+  letter-spacing: rem(1.25px);
+
+  @media (min-width: $breakpoint-md) {
+    font-size: rem(14px);
+  }
+}
+
+.type-small {
+  @include type-small();
+}
+
+@mixin type-button() {
+  @include type-bold();
+  font-size: rem(14px);
+  line-height: 1.5;
+  letter-spacing: rem(1.25px);
+  text-transform: uppercase;
+}
+
+.type-button {
+  @include type-button();
+}
+
+@mixin type-emphasis() {
+  color: $color-secondary;
+}
+
+.type-emphasis {
+  @include type-emphasis();
+}
+
+.type-bold {
+  @include type-bold();
+}

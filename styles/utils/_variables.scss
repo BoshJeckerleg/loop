@@ -1,0 +1,53 @@
+@import './functions';
+
+$breakpoint-xs: em(0px);
+$breakpoint-sm: em(576px);
+$breakpoint-md: em(768px);
+$breakpoint-lg: em(992px);
+$breakpoint-xl: em(1200px);
+
+$color-primary: #1b262c;
+$color-secondary: #586f7c;
+$color-emphasis: #04d7d7;
+
+$color-white: #ffffff;
+$color-light-grey: #fafafa;
+$color-grey: #eeeeee;
+$color-dark-grey: #ced0ce;
+$color-border: #8a8a8a;
+$color-body: #131c1f;
+
+$grid-width: rem(1300px);
+$grid-columns: 12;
+$grid-settings: (
+  xs: (
+    breakpoint: $breakpoint-xs,
+    padding: rem(20px),
+    column-gap: rem(20px),
+    row-gap: rem(30px),
+  ),
+  sm: (
+    breakpoint: $breakpoint-sm,
+    padding: rem(20px),
+    column-gap: rem(20px),
+    row-gap: rem(30px),
+  ),
+  md: (
+    breakpoint: $breakpoint-md,
+    padding: rem(30px),
+    column-gap: rem(30px),
+    row-gap: rem(40px),
+  ),
+  lg: (
+    breakpoint: $breakpoint-lg,
+    padding: rem(40px),
+    column-gap: rem(40px),
+    row-gap: rem(50px),
+  ),
+  xl: (
+    breakpoint: $breakpoint-xl,
+    padding: rem(40px),
+    column-gap: rem(40px),
+    row-gap: rem(50px),
+  ),
+);

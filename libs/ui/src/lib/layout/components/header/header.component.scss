@@ -1,0 +1,30 @@
+@import 'common';
+
+.c-header__inner {
+  position: relative;
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+.c-header__home-link {
+  display: flex;
+  align-items: center;
+  margin: rem(10px) rem(20px) rem(10px) 0;
+  color: $color-white;
+  text-decoration: none;
+  line-height: 1;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .c-header__home-link {
+    margin: rem(15px) rem(20px) rem(20px) 0;
+  }
+}

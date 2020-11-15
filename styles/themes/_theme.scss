@@ -1,0 +1,46 @@
+@import 'common';
+
+@mixin theme-white() {
+  background-color: $color-white;
+  color: $color-body;
+}
+
+.th-white {
+  @include theme-white();
+}
+
+@mixin theme-light-grey() {
+  background-color: $color-light-grey;
+  color: $color-body;
+}
+
+.th-light-grey {
+  @include theme-light-grey();
+}
+
+@mixin theme-dark-grey() {
+  background-color: $color-dark-grey;
+  color: $color-white;
+}
+
+.th-dark-grey {
+  @include theme-dark-grey();
+}
+
+@mixin theme-primary() {
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+.th-primary {
+  @include theme-primary();
+}
+
+@mixin theme-secondary() {
+  background-color: $color-secondary;
+  color: $color-white;
+}
+
+.th-secondary {
+  @include theme-secondary();
+}

@@ -1,0 +1,80 @@
+@import 'common';
+
+.c-button {
+  @include drop-shadow();
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: rem(45px);
+  min-height: rem(45px);
+  margin: 0;
+  padding: rem(10px) rem(25px);
+  border-radius: rem(10px);
+  border: none;
+  transition: color 200ms, background-color 200ms, opacity 200ms;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.c-button--disabled {
+  opacity: 0.5;
+
+  &:hover,
+  &:focus {
+    cursor: default !important;
+    text-decoration: none !important;
+  }
+}
+
+.c-button--primary {
+  background-color: $color-primary;
+  color: $color-white;
+
+  &:hover,
+  &:focus {
+    background-color: darken($color-primary, 5%);
+  }
+
+  &.c-button--disabled {
+    background-color: $color-primary;
+  }
+}
+
+.c-button--secondary {
+  background-color: $color-secondary;
+  color: $color-white;
+
+  &:hover,
+  &:focus {
+    background-color: darken($color-secondary, 10%);
+  }
+
+  &.c-button--disabled {
+    background-color: $color-secondary;
+  }
+}
+
+.c-button--white {
+  background-color: $color-white;
+  color: $color-primary;
+
+  &:hover,
+  &:focus {
+    background-color: $color-light-grey;
+  }
+
+  &.c-button--disabled {
+    background-color: $color-white;
+  }
+}
+
+@media (min-width: $breakpoint-sm) {
+  .c-button {
+    width: auto;
+  }
+}

@@ -1,0 +1,24 @@
+@import 'utils/variables';
+
+.l-grid {
+  display: grid;
+  width: 100%;
+  max-width: $grid-width;
+  margin: 0 auto;
+}
+
+@each $setting in map-keys($grid-settings) {
+  $breakpoint: map-deep-get($grid-settings, $setting, 'breakpoint');
+  $padding: map-deep-get($grid-settings, $setting, 'padding');
+  $column-gap: map-deep-get($grid-settings, $setting, 'column-gap');
+  $row-gap: map-deep-get($grid-settings, $setting, 'row-gap');
+
+  @media (min-width: $breakpoint) {
+    .l-grid {
+      max-width: calc(#{$grid-width} + (#{$padding} * 2));
+      padding: 0 $padding;
+      column-gap: $column-gap;
+      row-gap: $row-gap;
+    }
+  }
+}

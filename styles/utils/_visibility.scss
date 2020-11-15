@@ -1,0 +1,63 @@
+@mixin visually-hidden() {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.u-visually-hidden {
+  @include visually-hidden();
+}
+
+@mixin vertical-scrollbar() {
+  overflow-y: auto;
+
+  &::-webkit-scrollbar,
+  &::-webkit-scrollbar-track {
+    width: rem(5px);
+    background: $color-light-grey;
+    border-left: solid rem(1px) $color-border;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: rem(5px);
+    background: $color-primary;
+  }
+}
+
+@mixin horizontal-scrollbar() {
+  overflow-x: auto;
+
+  &::-webkit-scrollbar,
+  &::-webkit-scrollbar-track {
+    width: rem(5px);
+    background: $color-light-grey;
+    border-top: solid rem(1px) $color-border;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: rem(5px);
+    background: $color-primary;
+  }
+}
+
+@mixin truncate() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.u-truncate {
+  @include truncate();
+}
+
+@mixin drop-shadow() {
+  box-shadow: 0 rem(4px) rem(8px) rem(-2px) rgba(0, 0, 0, 0.2);
+}
+
+.u-drop-shadow {
+  @include drop-shadow();
+}

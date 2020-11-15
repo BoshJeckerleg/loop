@@ -1,0 +1,23 @@
+.l-grid-col {
+  grid-column: span $grid-columns;
+}
+
+// Grid column widths
+@for $i from 1 through $grid-columns {
+  .l-grid-col--#{$i} {
+    grid-column: span $i;
+  }
+}
+
+@each $setting in map-keys($grid-settings) {
+  $breakpoint: map-deep-get($grid-settings, $setting, 'breakpoint');
+
+  @media (min-width: $breakpoint) {
+    // Grid column widths
+    @for $i from 1 through $grid-columns {
+      .l-grid-col--#{$setting}#{$i} {
+        grid-column: span $i;
+      }
+    }
+  }
+}

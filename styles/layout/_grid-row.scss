@@ -1,0 +1,25 @@
+@import 'utils/variables';
+
+.l-grid-row {
+  display: grid;
+  grid-template-columns: repeat($grid-columns, 1fr);
+}
+
+.l-grid-row--valign {
+  align-items: center;
+}
+
+.l-grid-row--halign {
+  justify-content: center;
+}
+
+@each $setting in map-keys($grid-settings) {
+  $breakpoint: map-deep-get($grid-settings, $setting, 'breakpoint');
+  $column-gap: map-deep-get($grid-settings, $setting, 'column-gap');
+
+  @media (min-width: $breakpoint) {
+    .l-grid-row {
+      grid-gap: $column-gap;
+    }
+  }
+}
