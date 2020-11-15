@@ -1,1 +1,7 @@
-<p>playback works!</p>
+<ng-container *ngIf="recordings$ | async as recordings">
+  <loop-recording
+    *ngFor="let recording of recordings; trackBy: trackRecording"
+    class="c-playback__recording"
+    [recording]="recording"
+  ></loop-recording>
+</ng-container>

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { UiLayoutModule } from '@loop/ui';
+import { UiLayoutModule } from '@lib/ui';
 import * as Components from './components';
 
 @NgModule({

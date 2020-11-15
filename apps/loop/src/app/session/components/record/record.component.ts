@@ -1,8 +1,11 @@
-import { ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { generateId } from '@lib/utils';
+import { Recording } from '@loop/session/interfaces';
+import * as fromSession from '@loop/session/store';
+import { Store } from '@ngrx/store';
 import { fromEvent, ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-
 @Component({
   selector: 'loop-record',
   templateUrl: './record.component.html',
@@ -13,11 +16,9 @@ export class RecordComponent implements OnInit, OnDestroy {
   public audioChunks: Blob[] = [];
   public audioUrl: SafeUrl;
 
-  @ViewChild('container', { static: true }) public container: ElementRef<HTMLDivElement>;
-
   private _destroyed$: ReplaySubject<void> = new ReplaySubject();
 
-  constructor(private _changeDetectorRef: ChangeDetectorRef, private _domSanitizer: DomSanitizer) {}
+  constructor(private _domSanitizer: DomSanitizer, private _store: Store<fromSession.State>) {}
 
   public ngOnInit(): void {
     this._loadPermissions();
@@ -58,14 +59,17 @@ export class RecordComponent implements OnInit, OnDestroy {
   }
 
   private _buildAudioClip(): void {
-    console.log('_buildAudioClip', this.audioChunks);
-    //const clipName = prompt('Enter a name for your sound clip');
+    const name = prompt('Enter a name for your sound clip');
     const blob = new Blob(this.audioChunks, { type: 'audio/ogg; codecs=opus' });
     this.audioChunks = [];
-    const url = window.URL.createObjectURL(blob);
-    this.audioUrl = this._domSanitizer.bypassSecurityTrustResourceUrl(url);
 
-    console.log(this.audioUrl);
-    this._changeDetectorRef.detectChanges();
+    const recording: Recording = {
+      file: blob,
+      id: generateId(),
+      name,
+      url: '',
+    };
+
+    this._store.dispatch(fromSession.addRecording({ recording }));
   }
 }

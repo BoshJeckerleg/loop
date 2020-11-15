@@ -16,7 +16,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@loop/ui": ["libs/ui/src/index.ts"]
+      "@lib/ui": ["libs/ui/src/index.ts"],
+      "@lib/utils": ["libs/utils/src/index.ts"],
+      "@loop/environment": ["apps/loop/src/environments/environment.ts"],
+      "@loop/*": ["apps/loop/src/app/*"]
     },
     "types": ["node", "dom-mediacapture-record"]
   },
